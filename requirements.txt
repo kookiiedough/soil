@@ -1,0 +1,18 @@
+# Runtime dependencies for biodynamic-offline
+# MIT License
+
+fastapi==0.111.0
+uvicorn==0.27.1
+pydantic==2.6.1
+python-multipart==0.0.9
+sqlmodel==0.0.14
+sqlite3-api==0.1.0
+scikit-learn==1.4.0
+xgboost==2.0.3
+numpy==1.26.3
+pandas==2.2.0
+llama-cpp-python==0.2.56
+biopython==1.83
+huggingface-hub==0.20.3
+tqdm==4.66.2
+matplotlib==3.8.2

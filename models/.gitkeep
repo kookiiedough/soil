@@ -1,0 +1,2 @@
+# This directory will store the Llama-3-Instruct-8B-Q4_0.gguf model
+# The model will be automatically downloaded from Hugging Face if not present
