@@ -1,12 +1,20 @@
 .PHONY: setup setup-python setup-web setup-model train run test fmt clean
 
+# Detect the operating system
+ifeq ($(OS),Windows_NT)
+    VENV_ACTIVATE = .\venv\Scripts\activate
+else
+    VENV_ACTIVATE = . venv/bin/activate
+endif
+
 setup: setup-python setup-web setup-model
 	@echo "✅ Setup complete!"
 
 setup-python:
 	@echo "🐍 Setting up Python environment..."
 	python -m venv venv
-	.\venv\Scripts\activate && pip install -r requirements.txt -r dev-requirements.txt
+	@echo "📦 Installing Python dependencies..."
+	$(VENV_ACTIVATE) && pip install -r requirements.txt -r dev-requirements.txt
 
 setup-web:
 	@echo "🌐 Setting up web environment..."
@@ -14,24 +22,24 @@ setup-web:
 
 setup-model:
 	@echo "🤖 Downloading model (this may take a while)..."
-	.\venv\Scripts\activate && python scripts/download_model.py
+	$(VENV_ACTIVATE) && python scripts/download_model.py
 
 train:
 	@echo "🎯 Training model..."
-	.\venv\Scripts\activate && python ml/train.py
+	$(VENV_ACTIVATE) && python ml/train.py
 
 run:
 	@echo "🚀 Starting application..."
-	.\venv\Scripts\activate && uvicorn api.main:app --reload & cd web && npm run dev
+	$(VENV_ACTIVATE) && uvicorn api.main:app --reload & cd web && npm run dev
 
 test:
 	@echo "🧪 Running tests..."
-	.\venv\Scripts\activate && pytest -q
+	$(VENV_ACTIVATE) && pytest -q
 	cd web && npm test
 
 fmt:
 	@echo "✨ Formatting code..."
-	.\venv\Scripts\activate && black . && isort .
+	$(VENV_ACTIVATE) && black . && isort .
 
 clean:
 	@echo "🧹 Cleaning up..."
