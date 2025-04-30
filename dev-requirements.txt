@@ -8,5 +8,9 @@ isort==5.13.2
 flake8==6.1.0
 mypy==1.8.0
 httpx==0.26.0
-pytestwatch==0.10.0
+# in dev-requirements.txt, replace:
+#   pytest-watch==<whatever>
+# with:
+pytest-watcher
+
 pytest-mock==3.12.0

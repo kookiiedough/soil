@@ -6,7 +6,7 @@ uvicorn==0.27.1
 pydantic==2.6.1
 python-multipart==0.0.9
 sqlmodel==0.0.14
-sqlite3-api==0.1.0
+sqlite3-api==1.0.0
 scikit-learn==1.4.0
 xgboost==2.0.3
 numpy==1.26.3
