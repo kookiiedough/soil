@@ -26,6 +26,17 @@ venv/
 env/
 ENV/
 
+# Virtual Environment
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
 # Node
 node_modules/
 npm-debug.log*
@@ -39,20 +50,28 @@ yarn-error.log*
 .yarn/install-state.gz
 .pnp.*
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-.DS_Store
-
-# Project specific
+# Models
 models/*.gguf
-*.pkl
+!models/.gitkeep
+
+# Database
 *.db
 *.sqlite3
+
+# Logs
 *.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+
+# Testing
 .coverage
 htmlcov/
 .pytest_cache/
-.mypy_cache/ 
+.tox/ 
